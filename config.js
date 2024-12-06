@@ -1,5 +1,5 @@
 const API_Key = '32255758bc4c69c59bfae3102872384c';
-const limit = 10;
+const limit = 5;
 
 
 // Geolocation API verwenden, um den aktuellen Standort zu bekommen
@@ -43,15 +43,17 @@ async function fetchWeatherData(lat, lon) {
         console.log("Wetterdaten:", data);
 
         // Beispiel: Zugriff auf bestimmte Daten
-        const temperature = data.main.temp;
-        const weatherDescription = data.weather[0].description;
         const iconCode = data.weather[0].icon;
         const iconUrl = `https://openweathermap.org/img/wn/${iconCode}@4x.png`;
+        const temperature = data.main.temp;
+        const weather = data.weather[0].main;
+        const city = data.name;
+        const country = data.sys.country
+        const windSpeed = data.wind.speed;
+        const humidity = data.main.humidity;
+        const pressure = data.main.pressure;
+        document.getElementById('container').innerHTML = showDetailCard(iconUrl, temperature, weather, city, country, windSpeed, humidity, pressure);
 
-        // Wetterdaten anzeigen
-        console.log(`Wetter-Icon URL: ${iconUrl}`);
-        console.log(`Aktuelle Temperatur: ${temperature}°C`);
-        console.log(`Wetterbeschreibung: ${weatherDescription}`);
 
     } catch (error) {
         console.error("Fehler beim Abrufen der Wetterdaten:",)
@@ -59,9 +61,7 @@ async function fetchWeatherData(lat, lon) {
 }
 
 async function fetchForecastData(lat, lon) {
-    const API_Key = '32255758bc4c69c59bfae3102872384c';
     const forecastUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${API_Key}&units=metric`;
-
     try {
         const response = await fetch(forecastUrl);
         if (!response.ok) {
