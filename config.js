@@ -45,6 +45,11 @@ async function fetchWeatherData(lat, lon) {
         // Beispiel: Zugriff auf bestimmte Daten
         const temperature = data.main.temp;
         const weatherDescription = data.weather[0].description;
+        const iconCode = data.weather[0].icon;
+        const iconUrl = `https://openweathermap.org/img/wn/${iconCode}@4x.png`;
+
+        // Wetterdaten anzeigen
+        console.log(`Wetter-Icon URL: ${iconUrl}`);
         console.log(`Aktuelle Temperatur: ${temperature}°C`);
         console.log(`Wetterbeschreibung: ${weatherDescription}`);
 
