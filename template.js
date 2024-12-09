@@ -6,10 +6,16 @@ function showDetailCard(iconUrl, roundedTemperature, weather, city, country, win
                 <div class="date-time" id="dateTime"></div>
                 <div class="wind-humidity">
                     <div class="blue"><span class="fs-20">Wind speed</span><span class="fs-17">${windSpeed} km/h</span></div>
-                    <div class="green"><span class="fs-20">Humidity</span><span class="fs-17">${humidity} %</span></div>
+                    <div class="green"><span class="fs-20">Humidity</span><span class="fs-17">${humidity} g/m&sup3;</span></div>
                 </div>
                 <div class="index"><span class="fs-20">Pressure</span> <span class="fs-20"> ${pressure} hPa</span></div>
                 <div class="weather">${weather}, Overcast</div>
             </div>
+    `;
+}
+
+function showForecastCards(){
+    return `
+    
     `;
 }

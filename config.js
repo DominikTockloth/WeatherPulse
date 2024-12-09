@@ -61,6 +61,7 @@ async function fetchWeatherData(lat, lon) {
     }
 }
 
+// This function fetches the forecast data and displays the cards for 5 days 
 async function fetchForecastData(lat, lon) {
     const forecastUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${API_Key}&units=metric`;
     try {
