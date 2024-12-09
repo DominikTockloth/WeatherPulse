@@ -46,14 +46,15 @@ async function fetchWeatherData(lat, lon) {
         const iconCode = data.weather[0].icon;
         const iconUrl = `https://openweathermap.org/img/wn/${iconCode}@4x.png`;
         const temperature = data.main.temp;
+        const roundedTemperature = Math.round(temperature);
         const weather = data.weather[0].main;
         const city = data.name;
         const country = data.sys.country
         const windSpeed = data.wind.speed;
         const humidity = data.main.humidity;
         const pressure = data.main.pressure;
-        document.getElementById('container').innerHTML = showDetailCard(iconUrl, temperature, weather, city, country, windSpeed, humidity, pressure);
-
+        document.getElementById('container').innerHTML = showDetailCard(iconUrl, roundedTemperature, weather, city, country, windSpeed, humidity, pressure);
+        updateDateTime();
 
     } catch (error) {
         console.error("Fehler beim Abrufen der Wetterdaten:",)

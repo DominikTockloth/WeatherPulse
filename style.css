@@ -130,8 +130,8 @@ h1 {
 }
 
 .temperature img {
-    height: 80px;
-    width: 80px;
+    height: 165px;
+    width: 140px;
     object-fit: cover;
     border-radius: 20px;
 }
