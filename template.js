@@ -14,8 +14,13 @@ function showDetailCard(iconUrl, roundedTemperature, weather, city, country, win
     `;
 }
 
-function showForecastCards(){
-    return `
+function showForecastCards(dayName, iconUrl, roundedTemperature) {
+    return `  
+     <div class="fore-card">
+                    <h4>${dayName}</h4>
+                    <img id="forecastIcon" src="${iconUrl}">
+                    <span class="fore-temp">${roundedTemperature} &deg;C</span>
+                </div>
     
     `;
 }

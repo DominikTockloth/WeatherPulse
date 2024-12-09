@@ -40,7 +40,7 @@ p {
 .main {
     height: 100vh;
     width: 100%;
-    background-image: url('img/sunny.jpg');
+    background-image: url('img/default.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     box-sizing: border-box;
@@ -222,14 +222,14 @@ h1 {
 /***************************************  Style of forecast cards  *****************************/
 .forecast-container {
     display: flex;
+    align-items: center;
+    justify-content: center;
     flex-wrap: wrap;
     gap: 25px;
-    width: 700px;
-    height: 700px;
 }
 
 .fore-card {
-    height:fit-content;
+    height: fit-content;
     width: 200px;
     box-sizing: border-box;
     padding: 15px;
@@ -253,14 +253,13 @@ h4 {
 }
 
 #forecastIcon {
-    height: 80px;
-    width: 80px;
+    height: 100px;
     object-fit: cover;
-    margin-top: 20px;
+
 }
 
 .fore-temp {
     font-size: 20px;
     font-weight: 500;
-    margin-top: 14px;
+    margin-top: -14px;
 }
