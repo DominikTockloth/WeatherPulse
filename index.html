@@ -5,18 +5,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WeatherPulse</title>
-    <script src="template.js"></script>
-    <script src="config.js"></script>
-    <script src="script.js"></script>
+    <script src="template.js" defer></script>
+    <script src="config.js" defer></script>
+    <script src="script.js" defer></script>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="responsive.css">
 </head>
 
-<body>
+<body onload="getCurrentLocation()">
     <section class="main" id="main">
         <header>
             <h1>WeatherPulse</h1>
-            <div class="search"> <img src="img/search.png" alt="searchIcon"><input type="search" id="input"
-                    placeholder="Search city"><button onclick="searchForLocation()">Search</button></div>
+            <div class="search"> <img src="img/search.png" alt="searchIcon" onclick="searchForLocation()"><input
+                    type="text" id="input" placeholder="Search city"></div>
         </header>
         <div class="main-content-cards">
             <div class="card-container" id="container"></div>
