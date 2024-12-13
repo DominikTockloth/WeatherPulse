@@ -11,7 +11,7 @@ input.addEventListener('input', () => {
 });
 
 // Using geolocation api, to get current location
-function getCurrentLocation(){
+function getCurrentLocation() {
     navigator.geolocation.getCurrentPosition(function (position) {
         const lat = position.coords.latitude;
         const lon = position.coords.longitude;
@@ -87,7 +87,7 @@ async function searchForLocation() {
     const inputValue = document.getElementById('input').value.trim();
     if (!inputValue) {// Prevent empty searches
         getCurrentLocation();
-    } 
+    }
     // API URLs for current weather and forecast
     const currentWeatherUrl = `https://api.openweathermap.org/data/2.5/weather?q=${inputValue}&appid=${API_Key}&units=metric`;
     const forecastUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${inputValue}&appid=${API_Key}&units=metric`;

@@ -28,4 +28,4 @@ function updateDateTime() {
     const formattedTime = getTime();
     dateTimeDiv.innerHTML = `${formattedDate} <span></span> <span>${formattedTime}</span>`;
 }
-/**********************************************************************************************/
+
