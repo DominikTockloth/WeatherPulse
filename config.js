@@ -1,7 +1,7 @@
 const API_Key = '32255758bc4c69c59bfae3102872384c';
 const limit = 6;
 
-// Geolocation API verwenden, um den aktuellen Standort zu bekommen
+// Using geolocation api, to get current location
 navigator.geolocation.getCurrentPosition(function (position) {
     const lat = position.coords.latitude;  // Breitengrad
     const lon = position.coords.longitude; // Längengrad
@@ -12,6 +12,7 @@ navigator.geolocation.getCurrentPosition(function (position) {
 }, function (error) {
     console.error("Fehler beim Abrufen des Standorts:", error);
 });
+
 
 // Fetches the data from api
 async function fetchWeatherData(lat, lon) {
@@ -71,6 +72,31 @@ async function fetchForecastData(lat, lon) {
         console.error("Fehler beim Abrufen der Vorhersagedaten:", error);
     }
 }
+
+// Function to fetch weather data by city name in search input
+async function searchForLocation() {
+    const inputValue = document.getElementById('input').value;
+    if (inputValue.trim() === '') return; // Prevent empty searches
+
+    const searchUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${inputValue}&appid=${API_Key}&units=metric`;
+
+    try {
+        const response = await fetch(searchUrl);
+        if (!response.ok) {
+            throw new Error(`City not found or API error: ${response.status}`);
+        }
+        const weatherData = await response.json();
+        console.log('Weather Data:', weatherData);
+        document.getElementById('container').innerHTML = '';
+        document.getElementById('container').innerHTML = showDetailCard(iconUrl, roundedTemperature, weather, city, country, windSpeed, humidity, pressure);
+        updateBackgroundImage(weather);
+        updateDateTime();
+    } catch (error) {
+        console.error('Error fetching weather data:', error);
+        alert('City not found. Please try another city.');
+    }
+}
+
 
 // Updates the background image of webpage by current weather
 function updateBackgroundImage(weatherCondition) {

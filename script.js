@@ -1,7 +1,6 @@
-// This function returns the current date and time
+// This section returns the current date and time
 function getDate() {
     const date = new Date();
-
     const dateOptions = {
         weekday: 'long',
         day: '2-digit',
@@ -29,4 +28,4 @@ function updateDateTime() {
     const formattedTime = getTime();
     dateTimeDiv.innerHTML = `${formattedDate} <span></span> <span>${formattedTime}</span>`;
 }
-
+/**********************************************************************************************/
